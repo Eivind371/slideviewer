@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A web-based slide viewer for presentations",
   "main": "index.html",
-  "homepage": "https://YOUR_USERNAME.github.io/slide-viewer",
+  "homepage": "https://eivind371.github.io/slideviewer",
   "scripts": {
     "start": "live-server",
     "dev": "live-server"
