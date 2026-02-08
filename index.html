@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="slide-container">
+            <div class="slide" id="slide">
+                <h1>Slide 1</h1>
+                <p>Welcome to the Slide Viewer</p>
+            </div>
+            <canvas id="pdfCanvas" style="display: none;"></canvas>
+        </div>
+        
+        <div class="controls">
+            <button id="prevBtn" class="btn btn-prev">← Previous</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">1</span>
+            </span>
+            <button id="nextBtn" class="btn btn-next">Next →</button>
+        </div>
+
+        <div class="upload-section">
+            <label for="fileInput" class="upload-label">Upload Presentation or PDF:</label>
+            <input type="file" id="fileInput" accept=".pptx,.ppt,.odp,.pdf" />
+            <span class="file-info" id="fileInfo"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
