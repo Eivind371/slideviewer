@@ -29,12 +29,14 @@ const nextBtn = document.getElementById('nextBtn');
 const fileInput = document.getElementById('fileInput');
 const pdfCanvas = document.getElementById('pdfCanvas');
 const fileInfo = document.getElementById('fileInfo');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
 
 // Initialize
 function init() {
     totalSlidesSpan.textContent = slides.length;
     displaySlide();
     updateButtons();
+    requestFullscreen(); // Auto-enter fullscreen on load
 }
 
 // Display current slide
@@ -104,11 +106,42 @@ function prevSlide() {
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
+// Fullscreen toggle
+fullscreenBtn.addEventListener('click', toggleFullscreen);
+
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+    if (e.key === 'Escape') exitFullscreen();
 });
+
+// Fullscreen functions
+function requestFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(err => console.log('Fullscreen request denied'));
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    }
+}
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        requestFullscreen();
+    } else {
+        exitFullscreen();
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
 
 // File upload handler
 fileInput.addEventListener('change', async (e) => {
