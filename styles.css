@@ -111,6 +111,26 @@ body {
     font-size: 1.2em;
 }
 
+.btn-play {
+    min-width: 100px;
+}
+
+.btn-play.playing {
+    background: #e74c3c;
+}
+
+.btn-play.playing:hover {
+    background: #c0392b;
+}
+
+.timer {
+    font-weight: 700;
+    color: #e74c3c;
+    font-size: 1.1em;
+    min-width: 50px;
+    text-align: center;
+}
+
 .slide-counter {
     font-weight: 600;
     color: #333;
